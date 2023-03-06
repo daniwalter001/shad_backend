@@ -1,0 +1,127 @@
+POST http://localhost:2000/user/register 
+content-type: application/json
+
+{
+  "email": "dEFZf@gmail.com",
+  "password": "daniwalter001",
+  "phone": "0022899101748",
+  "lastname": "Oseille",
+  "firstname": "Alan",
+  "cs_email": "daniwalter001@gmail.com",
+  "cs_designation": "CMS Sacré Coeur 2",
+  "cs_phone": "0022899101748",
+  "cs_adresse": "Agoè Legbassito"
+}
+
+###
+
+POST http://localhost:2000/user/register 
+content-type: application/json
+
+{
+  "email": "d124@gmail.com",
+  "password": "daniwalter001",
+  "phone": "0022899101748",
+  "lastname": "123",
+  "firstname": "Alan",
+  "cs_email": "daniwalter001@gmail.com",
+  "cs_designation": "CMS Sacré Coeur 2",
+  "cs_phone": "0022899101748",
+  "cs_adresse": "Agoè Legbassito"
+}
+
+###
+POST http://localhost:2000/user/register 
+content-type: application/json
+
+{
+  "email": "dan@gmail.com",
+  "password": "daniwalter001",
+  "phone": "0022899101748",
+  "lastname": "Dan",
+  "firstname": "Alan",
+  "cs_email": "daniwalter001@gmail.com",
+  "cs_designation": "CMS Sacré Coeur 2",
+  "cs_phone": "0022899101748",
+  "cs_adresse": "Agoè Legbassito"
+}
+
+###
+
+POST http://localhost:2000/user/register 
+content-type: application/json
+
+{
+  "email": "davis@gmail.com",
+  "password": "daniwalter001",
+  "phone": "0022899101748",
+  "lastname": "Davis",
+  "firstname": "Alan",
+  "cs_email": "daniwalter001@gmail.com",
+  "cs_designation": "CMS Sacré Coeur 2",
+  "cs_phone": "0022899101748",
+  "cs_adresse": "Agoè Legbassito"
+}
+
+###
+
+POST http://localhost:2000/user/register 
+content-type: application/json
+
+{
+  "email": "danwalter001@gmail.com",
+  "password": "daniwalter001",
+  "phone": "0022899101748",
+  "lastname": "Davis",
+  "firstname": "Alan",
+  "cs_email": "daniwalter001@gmail.com",
+  "cs_designation": "CMS Sacré Coeur 2",
+  "cs_phone": "0022899101748",
+  "cs_adresse": "Agoè Legbassito"
+}
+
+###
+
+POST http://localhost:2000/user/login 
+content-type: application/json
+
+{
+  "email": "danwalter001@gmail.com",
+  "password": "daniwalter001"
+}
+
+###
+
+POST http://localhost:2000/user/validate 
+content-type: application/json
+
+{
+  "token": "a7cd7190-5402-4681-bde5-a723b4318033"
+}
+
+###
+
+GET http://localhost:2000/user/a7cd7190-5402-4681-bde5-a723b4318033 
+content-type: application/json
+# pour les infos d un user
+
+###
+
+POST http://localhost:2000/admin/login 
+content-type: application/json
+
+{
+  "email": "root@gmail.com",
+  "password": "roottoor"
+}
+
+###
+
+GET http://localhost:2000/user/non-validate/list 
+content-type: application/json
+
+
+###
+
+GET http://localhost:2000/patient/list 
+content-type: application/json
