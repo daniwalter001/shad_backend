@@ -5,12 +5,11 @@ const { formatFirstname } = require("../helpers/functions");
 
 const salt = parseInt(process.env.BCRYPT_SALT);
 
-const addAdmin = async ({ lastname, firstname = "", email, phone, password }) => {
+const addAdmin = async ({ name, email, phone, password }) => {
   console.log("in addadmin");
   return await sequelize.models.Admin.create({
     token: uuidv4(),
-    lastname: lastname?.toUpperCase(),
-    firstname: formatFirstname(firstname),
+    name,
     email,
     phone,
     password: bcrypt.hashSync(password, salt),

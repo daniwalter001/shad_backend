@@ -8,17 +8,8 @@ const fs = require("fs")
 const path = require("path");
 
 const { adminRouter } = require("./routers/AdminRouter");
-const { userRouter } = require("./routers/UserRouter");
-const { patientRouter } = require("./routers/PatientRouter")
-const { csRouter } = require("./routers/CsRouter")
-const { souscriptionRouter } = require("./routers/SouscriptionRouter")
-const { souscripteurRouter } = require("./routers/SouscripteurRouter");
-const { ConsultationRouter } = require("./routers/ConsultationRouter");
-const { AntecedentRouter } = require("./routers/AntecedentRouter");
-const { PrescriptionRouter } = require("./routers/PrescriptionRouter");
-const { ExamenRouter } = require("./routers/ExamenRouter");
-const { DiagnosticsRouter } = require("./routers/DiagnosticsRouter");
-const { SharedFileRouter } = require("./routers/SharedFileRouter");
+const { bookRouter } = require("./routers/BookRouter");
+const { buyerRouter } = require("./routers/BuyerRouter");
 
 const salt = parseInt(process.env.BCRYPT_SALT);
 let dir = path.join(__dirname, 'uploads');
@@ -30,12 +21,7 @@ app.use(cors());
 
 if (!fs.existsSync(dir)) {
   fs.mkdirSync(dir, 0744);
-  fs.mkdirSync(dir + "/cs", 0744);
-  fs.mkdirSync(dir + "/shared_files", 0744);
-  fs.mkdirSync(dir + "/consultations", 0744);
-  fs.mkdirSync(dir + "/cs/logos", 0744);
-  fs.mkdirSync(dir + "/cs/authorizations", 0744);
-  fs.mkdirSync(dir + "/consultations/examens", 0744);
+
 } else {
   console.log("Dev env : Upload folders already exists")
 }
@@ -57,18 +43,9 @@ app.get("/", (req, res) => {
   res.status(200).send(".ok");
 });
 
-app.use("/user", userRouter);
-app.use("/patient", patientRouter);
 app.use("/admin", adminRouter);
-app.use("/cs", csRouter);
-app.use("/souscription", souscriptionRouter);
-app.use("/souscripteur", souscripteurRouter);
-app.use("/consultation", ConsultationRouter);
-app.use("/antecedent", AntecedentRouter);
-app.use("/prescription", PrescriptionRouter);
-app.use("/diagnostic", DiagnosticsRouter);
-app.use("/examen", ExamenRouter);
-app.use("/sharedfile", SharedFileRouter);
+app.use("/book", bookRouter);
+app.use("/buyer", buyerRouter);
 
 app.get("/crypt/:pwd", (req, res) => {
   const pwd = req.params.pwd;
@@ -79,11 +56,7 @@ app.get("/crypt/:pwd", (req, res) => {
 });
 
 //listen
-app.get('/mail', (req, res) => {
-  res.sendFile(path.join(__dirname, "mail.html"));
-  // res.write("ls,fm")
-
-}).listen(process.env.PORT, () => {
+app.listen(process.env.PORT, () => {
   console.log("The server is working");
 })
 
@@ -93,7 +66,7 @@ app.use((err, req, res, next) => {
   if (err) {
     res.status(200).json({
       message: err.message,
-      status: "failed",
+      error: true,
     });
   }
 });

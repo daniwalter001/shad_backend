@@ -7,8 +7,7 @@ const adminRegistrationValidator = async (req, res, next) => {
       email: Joi.string().required().email().required().rule({
         message: "Email Invalide",
       }),
-      lastname: Joi.string().required(),
-      firstname: Joi.string().required(),
+      name: Joi.string().required(),
       password: Joi.string().required(),
     }).validateAsync(req.body);
     next();

@@ -1,7 +1,7 @@
 const { DataTypes } = require("sequelize");
 
-const defineAdminModel = (sequelize) =>
-  sequelize.define("Admin", {
+const defineBuyerModel = (sequelize) =>
+  sequelize.define("Buyer", {
     token: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -15,14 +15,14 @@ const defineAdminModel = (sequelize) =>
       type: DataTypes.STRING,
       allowNull: true,
     },
-    name: {
+    lastname: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
     },
-    password: {
+    firstname: {
       type: DataTypes.STRING,
       allowNull: false,
     }
   });
 
-module.exports = { defineAdminModel };
+module.exports = { defineBuyerModel };

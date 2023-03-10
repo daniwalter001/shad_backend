@@ -17,11 +17,6 @@ let initiate = async () => {
 
   while (error && count < 5) {
     try {
-      // const connection = await mysql.createConnection({ host: process.env.DB_HOST, user: process.env.DB_USERNAME, password: process.env.DB_PASSWORD, });
-      // await connection.query(`CREATE DATABASE IF NOT EXISTS \`${process.env.DB_NAME}\`;`)
-      // console.log(1)
-      // verification de la connection
-
       await sequelize
         .authenticate()
         .then(() => {

@@ -1,39 +1,40 @@
 const { DataTypes } = require("sequelize");
-const { TYPE_ANTECEDENT } = require("../helpers/constants");
 
-const defineAntecedentModel = (sequelize) =>
-  sequelize.define("Antecedents", {
+const defineBookModel = (sequelize) =>
+  sequelize.define("Book", {
     token: {
       type: DataTypes.STRING,
       allowNull: false,
       primaryKey: true,
     },
-    type: {
-      // POSSIBLE VALUE("familial", "medical"),
-      type: DataTypes.STRING,
-      defaultValue: TYPE_ANTECEDENT.MEDICAL,
-      allowNull: false,
-    },
-    patient_token: {
+    title: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    cs_token: {
+    author: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
-    user_token: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    consultation_token: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    details: {
+    synopsis: {
       type: DataTypes.TEXT,
+      allowNull: false,
+    },
+    edition: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    price: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    offsale: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    ebook: {
+      type: DataTypes.BOOLEAN,
       allowNull: true,
     },
   });
 
-module.exports = { defineAntecedentModel };
+module.exports = { defineBookModel };
